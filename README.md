@@ -20,7 +20,7 @@ This extension is distributed as an unpacked build. Chrome Web Store publication
 2. Open Chrome and navigate to `chrome://extensions/`
 3. Enable **Developer mode** (toggle in the top-right corner)
 4. Click **Load unpacked**
-5. Select this folder (`dist/`)
+5. Select this folder
 6. The **Tempo Weekly Planner** icon will appear in your toolbar
 
 > **Note:** Pin the extension from the puzzle-piece menu for easy access.
