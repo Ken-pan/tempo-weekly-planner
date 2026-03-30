@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "Tempo Weekly Planner",
+  "version": "0.1.0",
+  "description": "Side panel assistant for Jira ticket scraping and Tempo time logging automation",
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting",
+    "sidePanel",
+    "activeTab",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "https://imonline.atlassian.net/*",
+    "https://app.tempo.io/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://imonline.atlassian.net/issues*"
+      ],
+      "js": [
+        "jira-content.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://imonline.atlassian.net/plugins/servlet/ac/io.tempo.jira/*",
+        "https://app.tempo.io/*"
+      ],
+      "js": [
+        "tempo-content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Tempo Weekly Planner"
+  }
+}
